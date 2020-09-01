@@ -2243,7 +2243,7 @@
   // FSMC_UPSCALE 2 2x upscaler for 320x240 displays (default)
   // FSMC_UPSCALE 3 3x upscaler for 480x320 displays
   //
-  #define FSMC_UPSCALE 2
+  #define GRAPHICAL_TFT_UPSCALE 2
 
   //
   // Change colors
@@ -2283,8 +2283,8 @@
 //
 // ADS7843/XPT2046 ADC Touchscreen such as ILI9341 2.8
 //
-#define TOUCH_BUTTONS
-#if ENABLED(TOUCH_BUTTONS)
+#define TOUCH_SCREEN
+#if ENABLED(TOUCH_SCREEN)
   #define BUTTON_DELAY_EDIT  50 // (ms) Button repeat delay for edit screens
   #define BUTTON_DELAY_MENU 250 // (ms) Button repeat delay for menus
 
