@@ -708,12 +708,12 @@
     #define HAS_PROBE_XY_OFFSET 1
   #endif
   #if DISABLED(Z_MIN_PROBE_USES_Z_MIN_ENDSTOP_PIN)
-    //#define HAS_CUSTOM_PROBE_PIN 1 &tt
-    #define HAS_CUSTOM_PROBE_PIN true
+    #define HAS_CUSTOM_PROBE_PIN 1
+    //#define HAS_CUSTOM_PROBE_PIN true &tt
   #endif
   #if Z_HOME_DIR < 0 && (!HAS_CUSTOM_PROBE_PIN || ENABLED(USE_PROBE_FOR_Z_HOMING))
-    //#define HOMING_Z_WITH_PROBE 1 &tt
-    #define HOMING_Z_WITH_PROBE (Z_HOME_DIR < 0)
+    #define HOMING_Z_WITH_PROBE 1
+    //#define HOMING_Z_WITH_PROBE (Z_HOME_DIR < 0) &tt
   #endif
   #ifndef Z_PROBE_LOW_POINT
     #define Z_PROBE_LOW_POINT -5
