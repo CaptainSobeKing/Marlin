@@ -713,7 +713,7 @@
   #endif
   #if Z_HOME_DIR < 0 && (!HAS_CUSTOM_PROBE_PIN || ENABLED(USE_PROBE_FOR_Z_HOMING))
     //#define HOMING_Z_WITH_PROBE 1 &tt
-    #define HOMING_Z_WITH_PROBE
+    #define HOMING_Z_WITH_PROBE (Z_HOME_DIR < 0)
   #endif
   #ifndef Z_PROBE_LOW_POINT
     #define Z_PROBE_LOW_POINT -5
