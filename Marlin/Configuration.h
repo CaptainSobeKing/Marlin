@@ -495,13 +495,13 @@
     #define DEFAULT_Kd_LIST { 114.00, 112.0 }
   #else
     // TEVO Tarantula Custom PID Settings
-    #define DEFAULT_Kp 9.84
-    #define DEFAULT_Ki 0.50
-    #define DEFAULT_Kd 48.17
+    //#define DEFAULT_Kp 9.84
+    //#define DEFAULT_Ki 0.50
+    //#define DEFAULT_Kd 48.17
     // Defaults
-    //#define DEFAULT_Kp  22.20
-    //#define DEFAULT_Ki   1.08
-    //#define DEFAULT_Kd 114.00
+    #define DEFAULT_Kp  22.20
+    #define DEFAULT_Ki   1.08
+    #define DEFAULT_Kd 114.00
   #endif
 #endif // PIDTEMP
 
@@ -541,14 +541,26 @@
   // 120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
   // from FOPDT model - kp=.39 Tp=405 Tdead=66, Tc set to 79.2, aggressive factor of .15 (vs .1, 1, 10)
 
+  //#define DEFAULT_bedKp 10.00
+  //#define DEFAULT_bedKi .023
+  //#define DEFAULT_bedKd 305.4
+
+  //120V 250W silicone heater into 4mm borosilicate (MendelMax 1.5+)
+  //from pidautotune
+
   // TEVO Tarantula Custom PID Settings - Heatbed
   #define  DEFAULT_bedKp 984.88
   #define  DEFAULT_bedKi 193.91
   #define  DEFAULT_bedKd 1250.55
+
   // Defaults
   //#define DEFAULT_bedKp 10.00
   //#define DEFAULT_bedKi .023
   //#define DEFAULT_bedKd 305.4
+
+  //#define DEFAULT_bedKp 97.1
+  //#define DEFAULT_bedKi 1.41
+  //#define DEFAULT_bedKd 1675.16
 
   // FIND YOUR OWN: "M303 E-1 C8 S90" to run autotune on the bed at 90 degreesC for 8 cycles.
 #endif // PIDTEMPBED
@@ -1100,13 +1112,13 @@
 
 // For direct drive extruder v9 set to true, for geared extruder set to false.
 #define INVERT_E0_DIR true
-//#define INVERT_E1_DIR false
-//#define INVERT_E2_DIR false
-//define INVERT_E3_DIR false
-//#define INVERT_E4_DIR false
-//#define INVERT_E5_DIR false
-//#define INVERT_E6_DIR false
-//#define INVERT_E7_DIR false
+#define INVERT_E1_DIR false
+#define INVERT_E2_DIR false
+#define INVERT_E3_DIR false
+#define INVERT_E4_DIR false
+#define INVERT_E5_DIR false
+#define INVERT_E6_DIR false
+#define INVERT_E7_DIR false
 
 // @section homing
 
