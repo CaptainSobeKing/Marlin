@@ -22,7 +22,7 @@
 
 #include "../../inc/MarlinConfig.h"
 
-#if ALL(HAS_SPI_FLASH, SDSUPPORT, MARLIN_DEV_MODE)
+#if ALL(SPI_FLASH, SDSUPPORT, MARLIN_DEV_MODE)
 
 #include "../gcode.h"
 #include "../../sd/cardreader.h"
@@ -37,11 +37,9 @@ void GcodeSuite::M993() {
   char fname[] = "spiflash.bin";
   card.openFileWrite(fname);
   if (!card.isFileOpen()) {
-    SERIAL_ECHOLNPAIR("Failed to open ", fname, " to write.");
+    SERIAL_ECHOLNPGM("Failed to open ", fname, " to write.");
     return;
   }
-
-  W25QXXFlash W25QXX;
 
   uint8_t buf[1024];
   uint32_t addr = 0;
@@ -67,18 +65,16 @@ void GcodeSuite::M994() {
   char fname[] = "spiflash.bin";
   card.openFileRead(fname);
   if (!card.isFileOpen()) {
-    SERIAL_ECHOLNPAIR("Failed to open ", fname, " to read.");
+    SERIAL_ECHOLNPGM("Failed to open ", fname, " to read.");
     return;
   }
-
-  W25QXXFlash W25QXX;
 
   uint8_t buf[1024];
   uint32_t addr = 0;
   W25QXX.init(SPI_QUARTER_SPEED);
   W25QXX.SPI_FLASH_BulkErase();
   SERIAL_ECHOPGM("Load SPI Flash");
-  while(addr < SPI_FLASH_SIZE) {
+  while (addr < SPI_FLASH_SIZE) {
     card.read(buf, COUNT(buf));
     W25QXX.SPI_FLASH_BufferWrite(buf, addr, COUNT(buf));
     addr += COUNT(buf);
@@ -89,4 +85,4 @@ void GcodeSuite::M994() {
   card.closefile();
 }
 
-#endif // HAS_SPI_FLASH && SDSUPPORT && MARLIN_DEV_MODE
+#endif // SPI_FLASH && SDSUPPORT && MARLIN_DEV_MODE
